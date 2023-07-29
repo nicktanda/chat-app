@@ -1,6 +1,6 @@
 class ChannelsController < ApplicationController
   def index
-    render json: "Channels index"
+    render json: current_user.channels.map(&:as_json)
   end
 
   def show
