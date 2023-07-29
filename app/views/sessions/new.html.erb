@@ -1,0 +1,13 @@
+
+<% if flash[:alert].present? %>
+  <p><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_with url: create_session_path, method: :post do |form| %>
+  <h2>Log in</h2>
+  <%= form.label :email %><br>
+  <%= form.email_field :email %><br>
+  <%= form.label :password %><br>
+  <%= form.password_field :password %><br>
+  <%= form.submit "Log in" %>
+<% end %>
