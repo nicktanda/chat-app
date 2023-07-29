@@ -16,9 +16,20 @@ FOREIGN KEY ("user_id")
 );
 CREATE INDEX "index_messages_on_channel_id" ON "messages" ("channel_id");
 CREATE INDEX "index_messages_on_user_id" ON "messages" ("user_id");
+CREATE TABLE IF NOT EXISTS "user_channels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "channel_id" integer NOT NULL, CONSTRAINT "fk_rails_b930c653dc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_2ee049bd79"
+FOREIGN KEY ("channel_id")
+  REFERENCES "channels" ("id")
+);
+CREATE INDEX "index_user_channels_on_user_id" ON "user_channels" ("user_id");
+CREATE INDEX "index_user_channels_on_channel_id" ON "user_channels" ("channel_id");
+CREATE UNIQUE INDEX "index_user_channels_on_user_id_and_channel_id" ON "user_channels" ("user_id", "channel_id");
 INSERT INTO "schema_migrations" (version) VALUES
 ('20230729024205'),
 ('20230729024519'),
-('20230729024719');
+('20230729024719'),
+('20230729033509');
 
 
