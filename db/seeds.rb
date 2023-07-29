@@ -7,3 +7,5 @@ chat = Channel.new(name: "Mario Bros Chat")
 mario.channels << chat
 luigi.channels << chat
 
+chat.messages.create(body: "Peach is missing! Here we go again 🙄....", author: luigi)
+

@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
   belongs_to :channel
-  has_one :user
+  belongs_to :author, class_name: "User", foreign_key: :user_id
 end
