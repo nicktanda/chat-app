@@ -1,0 +1,11 @@
+<% if flash.present? %>
+  <% flash.each do |type, msg| %>
+    <p><%= msg %></p>
+  <% end %>
+<% end %>
+
+<h1>My channels</h1>
+
+<% @channels.each do |channel| %>
+  <%= link_to channel.name, show_channels_path(channel) %>
+<% end %>

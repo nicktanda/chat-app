@@ -1,6 +1,8 @@
 
-<% if flash[:alert].present? %>
-  <p><%= flash[:alert] %></p>
+<% if flash.present? %>
+  <% flash.each do |type, msg| %>
+    <p><%= msg %></p>
+  <% end %>
 <% end %>
 
 <%= form_with url: create_session_path, method: :post do |form| %>

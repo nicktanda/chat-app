@@ -1,0 +1,7 @@
+<h1>
+  <%= channel.name %>(<%= channel.messages.count %>)
+</h1>
+<% channel.messages.each do |message| %>
+  <%= render message %>
+  <hr />
+<% end %>
