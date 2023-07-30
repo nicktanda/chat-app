@@ -1,5 +1,6 @@
-
-<strong><%= message.author.name %></strong>
-<p>
-  <%= message.body %>
-</p>
+<%= turbo_frame_tag dom_id(message) do %>
+  <strong><%= message.author.name %></strong>
+  <p>
+    <%= message.body %>
+  </p>
+<% end %>

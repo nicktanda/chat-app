@@ -11,9 +11,9 @@ class ChannelsController < ApplicationController
   private
 
   def load_channel
-    @channel = current_user.channels.find_by(id: params[:channel_id])
+    @channel = current_user.channels.find_by(id: params[:id])
     unless @channel
-      redirect_to root_path, notice: "The channel '#{params[:channel_id]}' doesn't exist (or you don't have permisson to see it)"
+      redirect_to root_path, notice: "The channel '#{params[:id]}' doesn't exist (or you don't have permisson to see it)"
     end
   end
 end

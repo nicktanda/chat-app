@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy", as: "destroy_session"
 
   root "channels#index"
-  get "/:channel_id", to: "channels#show", as: "show_channels"
+  # get "/:channel_id", to: "channels#show", as: "show_channels"
+
+  resources :channels, only: [:show], path: '/' do
+    resources :messages, only: [:create]
+  end
 end
