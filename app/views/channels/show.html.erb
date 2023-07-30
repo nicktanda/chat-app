@@ -1,3 +1,14 @@
 <%= link_to 'Back', :back %>
 
 <%= render @channel %>
+
+Send a message:
+<form action="<%= channel_messages_path(@channel) %>" method="post">
+  <p>
+    <label for="message_body">Body</label><br>
+    <textarea name="message[body]" id="message_body"></textarea>
+  </p>
+  <p>
+    <input type="submit" value="Post!">
+  </p>
+</form>
